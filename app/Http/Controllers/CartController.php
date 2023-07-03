@@ -15,6 +15,14 @@ class CartController extends Controller
         // dd($cartItems);
         return view('cart', compact('cartItems'));
     }
+    // pour supprimer un élément du panier
+    public function deleteOne(Cart $cart)
+    {
+        // effacer un élément
+        $cart->delete();
+        // on fait une redirection vers le panier
+        return redirect(route('cart'));
+    }
 
 
 }

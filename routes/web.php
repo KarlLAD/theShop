@@ -29,7 +29,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    // lister les éléments du caddie
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
+    // chemin pour supprimer un élément du caddie
+    Route::get('/cart/delete-one/{cart}', [CartController::class, 'deleteOne'])->name('cart-delete-one');
+    //Vider le caddie (tous supprimer)
+    Route::get('/cart/delete', [CartController::class, 'delete'])->name('cart-delete');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

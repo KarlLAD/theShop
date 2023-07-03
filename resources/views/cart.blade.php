@@ -44,7 +44,9 @@
             <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">,240</p>
           </div>
           <button onclick="checkoutHandler1(true)" class="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white dark:hover:bg-gray-700">Checkout</button>
-          <a class="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white dark:hover:bg-gray-700">Vider le panier</a>
+         
+          <button onclick="emptyCart()" class="text-base leading-none w-full mt-5 py-5 bg-white border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 text-gray-700 dark:hover:bg-gray-300">  Vider le panier</button>
+        
         </div>
       </div>
     </div>
@@ -55,6 +57,44 @@
 
 </section>
 
+<script>
+
+
+
+let selectCart = document.querySelector('.cartChangeQuantity ') ;
+
+selectCart.addEventListener(
+"change",
+() => {
+
+
+
+}
+)
+  // redirection pour vider la panier
+  function emptyCart()
+  {
+    window.location = "{{ route('cart-delete') }}"
+  }
+/********************
+** Change la quantitée de produit dans la panier
+** paramètre id : cart
+*********************/
+const changeQuantity = (id = 0 ) => {
+  console.log(' changeQuantity debut') ;
+  console.log('cart Id :', id) ;
+  console.log('cart Id :', this) ;
+
+
+
+  
+  console.log(' changeQuantity fin') ;
+
+
+}
+
+
+</script>
 
 <script src='https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js'></script>
 

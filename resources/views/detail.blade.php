@@ -28,7 +28,16 @@
     <div class="flex flex-col md:flex-row -mx-4">
 {{-- début carousel --}}
 
+@if (count($product->carouselImage)>1)
 <x-carousel-detail2 :images="$product->carouselImage"/>
+
+@else
+  <div class="md:flex-1 px-4">
+
+    <img src="{{ Storage::url($product->defaultImage)}}" alt="">
+  </div>
+@endif
+
 
 {{-- end carousel --}}
       <div class="md:flex-1 px-4">

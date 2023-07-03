@@ -24,5 +24,12 @@ class CartController extends Controller
         return redirect(route('cart'));
     }
 
+    public function delete()
+    {
+        // sélectionner les éléments de l'utilisateur dans son panier puis delete: pour effacer
+        Cart::where('user_id', Auth::user()->id)->delete();
+
+        return redirect(route('cart'));
+    }
 
 }

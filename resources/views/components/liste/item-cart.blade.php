@@ -7,10 +7,13 @@
       <p class="text-xs leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">{{  $itemCart->product->category->name}}</p>
       <div class="flex items-center justify-between w-full">
         <p class="text-base font-black leading-none text-gray-800 dark:text-white">{{  $itemCart->product->name }}</p>
-        <select aria-label="Select quantity" class="py-2 px-1 border border-gray-200 mr-6 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
-          <option>01</option>
-          <option>02</option>
-          <option>03</option>
+        <select   data-id="{{$itemCart->id}}"  aria-label="Select quantity"   class="cartChangeQuantity py-2 px-1 border border-gray-200 mr-6 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+        {{-- boucle dynamique de la quantité dans le panier --}}
+          @for ($i=1; $i<=5; $i++)
+          <option value="{{$i}}" @selected($itemCart->quantity ==$i)>{{$i}}</option>
+          @endfor
+
+
         </select>
       </div>
       <p class="text-xs leading-3 text-gray-600 dark:text-white pt-2">Height: 10 inches</p>

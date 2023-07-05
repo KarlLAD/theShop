@@ -52,7 +52,9 @@ $(document).ready(
                       success: function( data ) {
                         //boucle de la fonction : data.map
 
-                        const dataName = data.map(item=>item.name) ;
+                        const dataName = data.map(item=>
+                          
+                          item.name) ;
 
                         response( dataName );
                         console.log(data);

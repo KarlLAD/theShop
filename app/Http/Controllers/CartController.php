@@ -10,7 +10,7 @@ class CartController extends Controller
 {
     //calcul du caddie des éléments du tableau
     private function CalculTotal($cartItems){
-        $total =0 ;
+        $total = 0 ; 
         foreach ($cartItems  as $cart) {
 
             $total = $total + ($cart->quantity * $cart->product->prix);
@@ -55,7 +55,7 @@ class CartController extends Controller
 
         $cartItems = Cart::where('user_id', Auth::user()->id)->get();
 
-
+        $total =$this->calculTotal($cartItems);
 
         return response()->json([
             'result' => true,

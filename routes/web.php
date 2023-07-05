@@ -22,6 +22,10 @@ Route::get('/', [ProductController::class, 'index'])->name('accueil');
 Route::get('/category/{id}', [ProductController::class, 'index'])->name('category');
 // {product} on récupère directe le produit
 Route::get('/detail/{product}',[ProductController::class, 'detail'])->name('detail');
+// search :
+Route::get('/search/{keyword}',[ProductController::class, 'search'])->name('search');
+
+
 
 
 Route::get('/dashboard', function () {
@@ -35,7 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cart/delete-one/{cart}', [CartController::class, 'deleteOne'])->name('cart-delete-one');  // route sécurisé pour supprimer une donnée
     //Vider le caddie (tous supprimer)
     Route::get('/cart/delete', [CartController::class, 'delete'])->name('cart-delete');
-    Route::get('/cart/update/{cart}/{quantity}', [CartController::class, 'update'])->name('cart-update'); // route sécurisé pour updte
+    Route::get('/cart/update/{cart}/{quantity}', [CartController::class, 'update'])->name('cart-update'); // route sécurisé pour update
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

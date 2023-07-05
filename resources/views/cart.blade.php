@@ -58,76 +58,11 @@
 
     </section>
 
-    {{-- cdn jsquery minified --}}
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-        crossorigin="anonymous"></script>
 
 
     <script>
-        $(document).ready(
-            () => {
 
-                // document chargé : 
-                console.log('document chargé')
-                // find selected quantity
-                $(".cartChangeQuantity").change(
-                    (event) => {
-                      // console.log('quantity :', event.target.value) ;
-                      // console.log('id :', event.target.id) ;
-
-                      //coté client
-                      const quantity = event.target.value ;
-                      const id       = event.target.id ;
-                      $('#total').text(12);
-
-                      // on envoie les données en ajax
-                      $.ajax('/cart/update/'+id+'/'+quantity).done(
-                        res => {
-                          console.log('result', res.result);
-                          console.log('total', res.total);
-                          $("#total").text(res.total);
-                        }
-                      )
-
-                    }
-
-                )
-
-            }
-        )
-
-        // let selectCart = document.querySelector('.cartChangeQuantity ') ;
-
-        // selectCart.addEventListener(
-        // "change",
-        // () => {
-
-
-
-        // }
-        // )
-
-        // redirection pour vider la panier
-        function emptyCart() {
-            window.location = "{{ route('cart-delete') }}"
-        }
-        /********************
-         ** Change la quantitée de produit dans la panier
-         ** paramètre id : cart
-         *********************/
-        const changeQuantity = (id = 0) => {
-            console.log(' changeQuantity debut');
-            console.log('cart Id :', id);
-            console.log('cart Id :', this);
-
-
-
-
-            console.log(' changeQuantity fin');
-
-
-        }
     </script>
 
     <script src='https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js'></script>

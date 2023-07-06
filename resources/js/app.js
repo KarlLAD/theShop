@@ -50,20 +50,31 @@ $(document).ready(
                         term: request.term
                       }, */
                       success: function( data ) {
+                        console.log(data);
                         //boucle de la fonction : data.map
 
-                        const dataName = data.map(item=>
-                          
-                          item.name) ;
+                        const newData = data.map(item=>
+                          {
+                            //créer une nouvelle colonne value avec la valeur de Colonne name
+                            item["value"] = item["name"];
+                            delete item["name"];
+                            return item;
 
-                        response( dataName );
-                        console.log(data);
+                          })
+                          ;
+                          // console.log(newData);
+                        response( newData );
+
                       }
                     } );
                   },
                   minLength: 2,
                   select: function( event, ui ) {
-                    console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+                    console.log(ui.item);
+                    const mylink = '/detail/' + ui.item.id ;
+                    // console.log(mylink);
+                    window.location = mylink ;
+                    // console.log( "Selected: " + ui.item.value + " aka " + ui.item.id );
                   }
             }
         )
